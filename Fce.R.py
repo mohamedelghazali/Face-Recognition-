@@ -5,19 +5,20 @@ import os
 
 video_capture = cv2.VideoCapture(0)
 
-image1 = face_recognition.load_image_file(os.path.abspath("recognize/images/price1.png"))
+image1 = face_recognition.load_image_file(os.path.abspath("# Put The path of your  image"))
 image1_face_encoding = face_recognition.face_encodings(image1)[0]
 
-image2 = face_recognition.load_image_file(os.path.abspath("recognize/images/me.jpg"))
+image2 = face_recognition.load_image_file(os.path.abspath("# Put The path of your  image "))
 image2_face_encoding = face_recognition.face_encodings(image2)[0]
+# You can add more Imges 
 
 known_face_encodings = [
     image1_face_encoding,
     image2_face_encoding
 ]
 known_face_names = [
-    "Captain Price",
-    "Pythoholic"
+    "Put the  name of the person 1  ",
+    "Put thename of the person 2 "
 ]
 
 face_locations = []
@@ -56,7 +57,7 @@ while True:
         font = cv2.FONT_HERSHEY_DUPLEX
         cv2.putText(frame, name, (left + 6, bottom - 6), font, 0.6, (255, 255, 255), 1)
 
-    cv2.imshow('Video', frame)
+    cv2.imshow('Recognizing faces...', frame)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
